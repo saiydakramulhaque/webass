@@ -1,0 +1,38 @@
+/*
+=================================================================
+style.css
+This file contains custom styles for the Al Waya flower shop website.
+It works in conjunction with Tailwind CSS classes defined in the HTML.
+=================================================================
+*/
+
+/*
+ * Base body styles
+ * Sets the default font family and background color for the entire page.
+ * The font 'Inter' is imported in the HTML file from Google Fonts.
+ */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F8F9FA; /* A light gray background for contrast */
+}
+
+/*
+ * Custom color utility classes
+ * These classes provide a consistent color scheme based on the design.
+ * They are used throughout the HTML for text, backgrounds, and borders.
+ */
+
+/* Sets the primary orange text color */
+.text-orange-primary {
+    color: #F57A2D;
+}
+
+/* Sets the primary orange background color */
+.bg-orange-primary {
+    background-color: #F57A2D;
+}
+
+/* Sets the primary orange border color */
+.border-orange-primary {
+    border-color: #F57A2D;
+}
