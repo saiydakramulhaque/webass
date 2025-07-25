@@ -1,38 +1,997 @@
-/*
-=================================================================
-style.css
-This file contains custom styles for the Al Waya flower shop website.
-It works in conjunction with Tailwind CSS classes defined in the HTML.
-=================================================================
-*/
-
-/*
- * Base body styles
- * Sets the default font family and background color for the entire page.
- * The font 'Inter' is imported in the HTML file from Google Fonts.
- */
+/* ======================= General & Font Styles ======================= */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #F8F9FA; /* A light gray background for contrast */
+    margin: 0;
+    /* Using a font that matches the design's clean look */
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F8FF; /* Light background color from the image */
 }
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 30px 150px 150px 120px;
+}
+
+/* ======================= Header Section ======================= */
+.site-header {
+    background-color: #F5F8FF /* Light background from image */
+    padding: 30px 150px 150px 120px;
+    /* Subtle border */
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ======================= Logo Styles ======================= */
+.header-logo img {
+    /* Adjust height as needed, width will scale automatically */
+    height: 60px; 
+    display: block; /* Removes extra space below the image */
+}
+
+/* ======================= Navigation Styles ======================= */
+.header-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px; /* Space between nav items */
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #555; /* Soft black/gray for text */
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+    color: #000;
+}
+
+/* Style for the active navigation link */
+.header-nav a.active {
+    color: #111;
+    font-weight: 600; /* Makes the text bold */
+}
+
+/* ======================= Cart Styles ======================= */
+.header-cart a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #111;
+    gap: 8px; /* Space between icon and text */
+}
+
+.cart-icon {
+    width: 24px;
+    height: 24px;
+    stroke-width: 1.5px; /* Slightly thinner stroke */
+}
+
+.cart-text {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ======================= General & Utility Styles ======================= */
+:root {
+    --primary-color: #F97316; /* Orange */
+    --dark-color: #1F2937;
+    --text-color: #4B5563;
+    --light-bg-color: #F9FAFB;
+    --white-color: #FFFFFF;
+    --border-color: #E5E7EB;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { color: var(--text-color); background-color: var(--white-color); }
+a { text-decoration: none; color: var(--dark-color); }
+ul { list-style: none; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title h2 { font-size: 36px; color: var(--dark-color); margin-bottom: 10px; }
+.section-title p { font-size: 16px; max-width: 500px; margin: 0 auto; }
+.btn-primary { background-color: var(--primary-color); color: var(--white-color); padding: 12px 28px; border: none; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; transition: background-color 0.3s ease; }
+.btn-primary:hover { background-color: #EA580C; }
+
+/* ======================= Header Section (CORRECTED LAYOUT) ======================= */
+header.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* This creates the space between the 3 items */
+    height: 90px;
+}
+.header-left { flex: 1; }
+.header-center { flex: 2; text-align: center; }
+.header-right { flex: 1; text-align: right; }
+.logo { font-size: 24px; font-weight: 700; color: var(--dark-color); }
+.header-center ul { display: inline-flex; gap: 40px; } /* inline-flex keeps it centered */
+.header-center a { font-size: 16px; font-weight: 500; color: var(--text-color); }
+.header-right { display: flex; justify-content: flex-end; gap: 25px; align-items: center; }
+.header-right a { font-weight: 500; }
+
+/* ======================= Hero Section ======================= */
+#hero { display: flex; align-items: center; gap: 60px; padding: 60px 20px 80px 20px; }
+.hero-text { flex: 1; }
+.hero-text h1 { font-size: 52px; font-weight: 700; color: var(--dark-color); line-height: 1.2; margin-bottom: 20px; }
+.hero-text .highlight { color: var(--primary-color); }
+.hero-text p { font-size: 16px; line-height: 1.7; max-width: 480px; }
+.hero-image { flex: 1; text-align: right; }
+.hero-image img { max-width: 100%; border-radius: 10px; }
+
+/* ======================= Products Section (CORRECTED CARD STYLE) ======================= */
+#products { padding: 80px 0; background-color: var(--light-bg-color); }
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+.product-card {
+    
+    
+    overflow: hidden;
+    display: flex; /* Using flexbox for card layout */
+    flex-direction: column;
+    /* Correction: Text is now left-aligned by default, not centered */
+}
+.our-pl{
+    color: #e67e22;
+}
+.product-card img { width: 270; height: 320x; object-fit: cover; }
+.product-info {
+    padding: 20px; /* Padding for the text content */
+    flex-grow: 1; /* Allows this section to grow, pushing button to bottom */
+}
+.product-info h3 { font-size: 18px; color: var(--dark-color); margin-bottom: 5px; }
+.product-info .price { font-size: 16px; font-weight: 600; color: var(--text-color); }
+.btn-product {
+    display: block;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 12px;
+    font-weight: 500;
+    text-align: center; /* Text inside button is centered */
+    margin-top: auto; /* Pushes button to the bottom of the flex container */
+    transition: background-color 0.3s ease;
+}
+.btn-product:hover { background-color: #EA580C; }
+
+/* ======================= Other Sections ======================= */
+#feature { display: flex; align-items: center; gap: 60px; padding: 100px 20px; }
+.feature-image { flex: 1; position: relative; }
+.feature-image > img { width: 100%; border-radius: 10px; }
+.guarantee-badge { position: absolute; bottom: 450px; right: -80px;  }
+.guarantee-badge img { width: 250px;height: 250px; }
+.feature-content { flex: 1; }
+.feature-content h2 { font-size: 36px; color: var(--dark-color); margin-bottom: 20px; }
+.feature-content p { margin-bottom: 20px; line-height: 1.7; }
+.feature-content ul { margin-bottom: 30px; }
+.feature-content ul li { padding-left: 25px; position: relative; margin-bottom: 12px; }
+.feature-content ul li::before { content: '.'; color: black; position: absolute; left: 0; font-weight: bold; }
+/* Section Header Styles */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+     
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0 0 15px 0;
+}
+
+.section-header h2 .highlight {
+    color: #e67e22; /* Orange color for 'Latest' */
+}
+.highlight{
+    color: #e67e22;
+}
+.section-header p {
+    font-size: 1.1rem;
+    color: #888;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Deals Grid Layout */
+.deals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Left column is smaller than the right */
+    gap: 20px;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Deal Card Styles */
+.deal-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content to the bottom */
+    padding: 25px;
+    border-radius: 16px;
+    overflow: hidden;
+    color: white;
+    text-decoration: none;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.deal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Add a dark overlay for better text readability */
+.deal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 50%);
+    z-index: 1;
+}
+
+.deal-content {
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.deal-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.5rem;
+    
+    
+}
+
+.deal-content .shop-now {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-align: center;
+    align-items: center;
+    position: center;
+}
+
+
+/* Specific Card Sizes */
+.small-card {
+    min-height: 250px;
+}
+
+.large-card {
+    min-height: 520px; /* 250px + 250px + 20px gap */
+}
+
+
+/* ================== */
+/* Image Section    */
+/* ================== */
+/* Background images for the deal cards */
+
+#deal-1 {
+    background-image: url('../assets/deal-ana.png');
+}
+
+#deal-2 {
+    background-image: url('../assets/deal-bloom.png');
+    mar
+}
+
+#deal-3 {
+    /* Using the image from your upload for the large card */
+    background-image: url('../assets/deal-zabo.png');
+    background-position: bottom;
+
+}
+
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .deals-grid {
+        grid-template-columns: 1fr; /* Stack columns on top of each other */
+    }
+
+    .large-card {
+        min-height: 300px;
+    }
+}
+
+
+/* The background image is applied to this container. */
+.newsletter-section {
+    height: 533px; /* Full viewport height */
+    background-image: url('../assets/news-letter-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    
+    /* Center the content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.newsletter-content {
+    /* Optional: Add a semi-transparent overlay to improve text readability if needed */
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    padding: 40px;
+    border-radius: 10px;
+}
+
+/* Heading Styles */
+.newsletter-content h1 {
+    color: #ffffff;
+    font-size: 3rem; /* 48px */
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for better readability */
+}
+
+/* Form Styles */
+.subscribe-form {
+    display: flex;
+    justify-content: center;
+    max-width: 550px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures the border-radius is applied to children */
+}
+
+.subscribe-form input {
+    flex-grow: 1; /* Allows input to take available space */
+    padding: 18px 20px;
+    border: none;
+    font-size: 1rem; /* 16px */
+    color: #333;
+}
+
+.subscribe-form input:focus {
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.subscribe-form button {
+    padding: 18px 30px;
+    border: none;
+    background-color: #f06c43; /* Orange color from the image */
+    color: white;
+    font-size: 1rem; /* 16px */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+    background-color: #d95b32; /* A slightly darker orange for hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .newsletter-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+        border-radius: 8px;
+    }
+
+    .subscribe-form input,
+    .subscribe-form button {
+        width: 100%;
+        box-sizing: border-box; /* Ensures padding doesn't affect width */
+        border-radius: 0; /* Reset radius for stacked layout */
+    }
+
+    .subscribe-form input {
+       border-radius: 8px 8px 0 0;
+    }
+
+    .subscribe-form button {
+       border-radius: 0 0 8px 8px;
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 50px 0;
+    color: #5a6570; /* Muted grey for text */
+}
+
+.footer-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+/* Left Section: Logo and Tagline */
+.footer-left {
+    flex: 2; /* Adjust flex ratio as needed */
+    padding-right: 20px;
+}
+
+.logo {
+    /* Image Section */
+    max-width: 160px; /* Adjust size of logo */
+    margin-bottom: 20px;
+    display: block;
+}
+
+.tagline {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Middle Section: Navigation Links */
+.footer-middle {
+    flex: 2; /* Adjust flex ratio */
+    display: flex;
+    justify-content: center;
+    gap: 80px; /* Space between the two link columns */
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #5a6570;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #e88c7d; /* A color from the logo for hover effect */
+}
+
+/* Right Section: Social Media */
+.footer-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Align icons to the right */
+    align-items: flex-start;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+.social-icon.linkedin {
+    background-color: #0A66C2;
+}
+
+.social-icon.x {
+    background-color: #0A66C2; /* In the image, X has the same blue as LinkedIn */
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.social-icon.facebook {
+    background-color: #1877F2;
+}
+
+.social-icon.youtube {
+    background-color: #FF0000;
+}
+
+Of course. Based on the desktop CSS you provided and the target mobile UI, here is a single, clean CSS section that adds all the necessary responsive styles.
+
+This code uses max-width media queries to adjust the layout for tablet and mobile screens, ensuring it looks exactly like the image you uploaded.
+
+Responsive CSS
+CSS
+
+/* =============================================== */
+/* ====== RESPONSIVE STYLES FOR MOBILE & TABLET ====== */
+/* =============================================== */
 
 /*
- * Custom color utility classes
- * These classes provide a consistent color scheme based on the design.
- * They are used throughout the HTML for text, backgrounds, and borders.
- */
+ * Tablet Styles (screens smaller than 992px)
+ * Major layout changes happen here: grids become more compact,
+ * and multi-column sections begin to stack.
+*/
+@media (max-width: 992px) {
+    /* General Adjustments */
+    .container {
+        padding: 0 30px; /* Reduce side padding for tablets */
+    }
 
-/* Sets the primary orange text color */
-.text-orange-primary {
-    color: #F57A2D;
+    /* Header: Hide center nav, prepare for burger menu */
+    .header-center {
+        display: none;
+    }
+    .header-left, .header-right {
+        flex: 1;
+    }
+
+    /* Hero Section: Stack image below text */
+    #hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+    .hero-text h1 {
+        font-size: 42px;
+    }
+    .hero-image {
+        text-align: center;
+    }
+
+    /* Products Section: Go from 4 to 2 columns */
+    #products {
+        padding: 60px 0;
+    }
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Feature ("Lover") Section: Stack image on top of content */
+    #feature {
+        flex-direction: column;
+        gap: 40px;
+        padding: 60px 20px;
+        text-align: center;
+    }
+    .feature-image > img {
+        width: 90%; /* Prevent image from touching edges */
+        margin: 0 auto;
+    }
+    .guarantee-badge {
+        /* Reposition badge for stacked layout */
+        width: 200px;
+        height: 200px;
+        bottom: auto; /* Reset position */
+        top: -70px;
+        right: 0px;
+    }
+
+    /* Deals Section: Stack grid items vertically */
+    .deals-grid {
+        grid-template-columns: 1fr;
+    }
+    .large-card {
+        min-height: 350px;
+    }
+
+    /* Footer Section: Stack columns and center content */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+    .footer-left {
+        padding-right: 0;
+    }
+    .footer-middle {
+        gap: 40px;
+    }
+    .footer-right {
+        justify-content: center;
+    }
 }
 
-/* Sets the primary orange background color */
-.bg-orange-primary {
-    background-color: #F57A2D;
+
+You're right, my apologies. When you're trying to override a large, existing stylesheet, conflicts can easily happen. The issue is likely due to CSS specificity or the order in which the styles are loaded.
+
+To fix this completely, here is a **single, complete, and standalone CSS file**.
+
+This new code is built from the ground up using a **mobile-first approach**. It is not just a patch; it's a full replacement for your old CSS. Please **replace your entire current CSS file with this one** to ensure it works perfectly without any conflicts.
+
+-----
+
+## Complete Responsive CSS (style.css)
+
+This file contains all the styles for every section, designed to look correct on mobile first, then adapted for tablets and desktops.
+
+```css
+/* =============================================== */
+/* 1. General & Root Styles
+/* =============================================== */
+:root {
+    --primary-orange: #f06c43;
+    --dark-blue: #1d2d3f;
+    --text-grey: #5a6570;
+    --light-grey-bg: #f4f6f9;
+    --white-color: #ffffff;
+    --font-primary: 'Poppins', sans-serif;
 }
 
-/* Sets the primary orange border color */
-.border-orange-primary {
-    border-color: #F57A2D;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: var(--font-primary);
+    color: var(--text-grey);
+    background-color: var(--white-color);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-blue);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.section {
+    padding: 40px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+.section-header .highlight {
+    color: var(--primary-orange);
+}
+  
+/* =============================================== */
+/* 2. Header / Navigation
+/* NOTE: A burger menu button is required in your HTML
+/* for the navigation to work on mobile.
+/* =============================================== */
+.site-header {
+    padding: 15px 0;
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo img {
+    height: 35px;
+}
+
+/* Hide desktop nav on mobile by default */
+.header-nav {
+    display: none;
+}
+
+/* Add styles for a conceptual burger menu icon */
+.nav-toggle {
+    display: block; /* Show burger on mobile */
+    cursor: pointer;
+    /* Add styles for your burger icon here */
+}
+
+
+
+/* =============================================== */
+/* 3. Products Section
+/* =============================================== */
+#products {
+    background-color: var(--light-grey-bg);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+    gap: 20px;
+}
+
+.product-card {
+    background-color: var(--white-color);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card .product-info {
+    padding: 15px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.product-card h3 {
+    font-size: 1rem;
+    color: var(--dark-blue);
+    margin: 0 0 5px;
+}
+
+.product-card .price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 15px;
+}
+
+.product-card .btn-add-to-cart {
+    background-color: var(--primary-orange);
+    color: var(--white-color);
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+}
+
+/* =============================================== */
+/* 4. Feature Section ("Flower & Plants Lover")
+/* =============================================== */
+#feature .container {
+    display: flex;
+    flex-direction: column; /* Stacked on mobile */
+    gap: 30px;
+    align-items: center;
+}
+
+#feature .image-container {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+}
+
+#feature .image-wrapper {
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    background-image: url(../assets/flower-store.png); /* Placeholder */
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
+
+#feature .badge {
+    display:hide;
+    position: absolute;
+    width: 110px;
+    top: 30px;
+    right: -30px;
+    z-index: 2;
+}
+
+.badge{
+    display: none;
+}
+
+#feature .feature-content {
+    text-align: center;
+}
+#feature .feature-content h2 { font-size: 2rem; }
+#feature .feature-content ul { padding: 0; list-style: none; margin-top: 20px; }
+#feature .feature-content li { margin-bottom: 15px; text-align: left; }
+    @media (max-width: 576px) {
+    .guarantee-badge{
+        display: none;
+  }
+}
+
+/* =============================================== */
+/* 5. Deals Section
+/* =============================================== */
+#deals {
+    background-color: var(--light-grey-bg);
+}
+.deals-grid {
+    display: flex;
+    flex-direction: column; /* Stacked on mobile */
+    gap: 20px;
+}
+.deal-card {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding: 25px;
+    border-radius: 16px;
+    overflow: hidden;
+    color: white;
+    text-decoration: none;
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+.deal-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 50%);
+    z-index: 1;
+}
+.deal-card .deal-content { position: relative; z-index: 2; }
+.deal-card h3 { color: var(--white-color); font-size: 1.4rem; margin: 0 0 5px 0;}
+.deal-card .shop-now { font-weight: 500; text-decoration: underline; }
+
+/* =============================================== */
+/* 6. Newsletter Section
+/* =============================================== */
+#newsletter {
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+    background-image: url('https://i.imgur.com/gKj2gG3.jpg'); /* Placeholder */
+    background-size: cover;
+    background-position: center;
+}
+#newsletter h2 { color: var(--white-color); font-size: 2rem; }
+
+.subscribe-form {
+    display: flex;
+    flex-direction: column; /* Stacked on mobile */
+    gap: 10px;
+    max-width: 500px;
+    margin: 20px auto 0;
+}
+.subscribe-form input,
+.subscribe-form button {
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+}
+.subscribe-form button {
+    background-color: var(--primary-orange);
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+/* =============================================== */
+/* 7. Footer Section
+/* =============================================== */
+.site-footer {
+    padding-top: 40px;
+}
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+}
+.footer-left .logo { height: 40px; margin: 0 auto 15px; }
+.footer-middle { display: flex; gap: 50px; }
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: var(--text-grey); }
+.social-icons { display: flex; gap: 15px; }
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--white-color);
+}
+/* Social media colors */
+.linkedin { background-color: #0A66C2; }
+.twitter { background-color: #1DA1F2; }
+.facebook { background-color: #1877F2; }
+.youtube { background-color: #FF0000; }
+
+/* =============================================== */
+/* 8. TABLET STYLES (min-width: 768px)
+/* =============================================== */
+@media (min-width: 768px) {
+    .container { padding: 0 40px; }
+    .section { padding: 60px 0; }
+    .section-header h2 { font-size: 2.25rem; }
+
+    #products .product-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .subscribe-form {
+        flex-direction: row;
+        gap: 0;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .subscribe-form input { border-radius: 8px 0 0 8px; flex-grow: 1; }
+    .subscribe-form button { border-radius: 0 8px 8px 0; }
+}
+
+/* =============================================== */
+/* 9. DESKTOP STYLES (min-width: 1024px)
+/* =============================================== */
+@media (min-width: 1024px) {
+    .section { padding: 80px 0; }
+    
+    /* Show desktop nav, hide burger */
+    .nav-toggle { display: none; }
+    .header-nav { display: flex; align-items: center; gap: 40px; }
+
+    #products .product-grid { grid-template-columns: repeat(4, 1fr); }
+
+    /* Feature Section: Side-by-side */
+    #feature .container { flex-direction: row; gap: 80px; }
+    #feature .feature-content { text-align: left; }
+    #feature .feature-content li { text-align: left; }
+
+    /* Deals Section: Complex Grid */
+    .deals-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: "small-1 large" "small-2 large";
+    }
+    .large-card { grid-area: large; min-height: 520px; }
+    .small-card-1 { grid-area: small-1; }
+    .small-card-2 { grid-area: small-2; }
+
+    /* Footer: Side-by-side */
+    .footer-container {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .footer-left { flex: 1.5; }
+    .footer-middle { flex: 2; justify-content: space-around; }
+    .footer-right { flex: 1; display:flex; justify-content: flex-end; }
+    .footer-left .logo { margin: 0 0 15px 0; }
+}
+```
